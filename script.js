@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const lenisInstance = new Lenis({ smooth: true });
 
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger);
 
   lenisInstance.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((time) => lenisInstance.raf(time * 1000));
@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
       start: "top top",
       end: `+=${window.innerHeight * 7}px`,
       pin: true,
-        pinSpacing:true,
+      pinSpacing: true,
 
-      scrub:1.5,
+      scrub: 1.5,
 
       markers: false,
 
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let opacity = 0;
             if (localProgress < 0.3) {
-              opacity = localProgress / 0.3; // fade in
+              opacity = localProgress / 0.3;
             } else if (localProgress > 0.7) {
-              opacity = (1 - localProgress) / 0.3; // fade out
+              opacity = (1 - localProgress) / 0.3;
             } else {
-              opacity = 1; // fully visible
+              opacity = 1;
             }
 
             gsap.to(el, { opacity, duration: 0.1, ease: "power1.inOut" });
@@ -68,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
           gsap.set(spotlightImages, { y: `-100%` });
         }
 
-        // === 2. Mask Animation (0.50 to 0.80)
-        // === 2. Mask Animation (0.50 to 0.80)
         if (progress > 0.5 && progress < 0.8) {
           const maskProgress = (progress - 0.5) / 0.3;
           const maskSize = `${maskProgress * 450}%`;
@@ -87,8 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
           maskContainer.style.setProperty("mask-size", "450%");
           gsap.set(maskImage, { scale: 1 });
         }
-
-        // === 3. Final Header Word-by-Word (0.80 to 1.00)
       },
     });
   });
