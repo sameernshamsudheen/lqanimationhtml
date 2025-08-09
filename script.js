@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pin: true,
         pinSpacing:true,
 
-      scrub:true,
+      scrub:1.5,
 
       markers: false,
 
